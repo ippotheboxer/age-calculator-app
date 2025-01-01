@@ -1,3 +1,32 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  main {
+    min-height: 100vh;
+  }
+  .poppins-regular-italic {
+    font-family: "Poppins", serif;
+    font-weight: 400;
+    font-style: italic;
+  }
+  .poppins-bold {
+    font-family: "Poppins", serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+  .poppins-extrabold-italic {
+    font-family: "Poppins", serif;
+    font-weight: 800;
+    font-style: italic;
+  }
+  .labelText {
+    @apply poppins-bold uppercase text-smokeyGrey text-sm pb-1;
+    letter-spacing: 0.2em
+  }
+  .inputDesign {
+    @apply border rounded-md border-lightGrey text-offBlack p-2 tracking-wide poppins-bold text-sm lg:text-3xl;
+    width: 150px;
+  }
+}
