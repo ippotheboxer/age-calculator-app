@@ -6,6 +6,10 @@
   main {
     min-height: 100vh;
   }
+  .mainContainer {
+    border-radius: 15px;
+    border-bottom-right-radius: 150px;
+  }
   .poppins-regular-italic {
     font-family: "Poppins", serif;
     font-weight: 400;
@@ -22,11 +26,25 @@
     font-style: italic;
   }
   .labelText {
-    @apply poppins-bold uppercase text-smokeyGrey text-sm pb-1;
+    @apply poppins-bold uppercase text-smokeyGrey lg:text-sm text-xs pb-1;
     letter-spacing: 0.2em
   }
   .inputDesign {
     @apply border rounded-md border-lightGrey text-offBlack p-2 tracking-wide poppins-bold text-sm lg:text-3xl;
-    width: 150px;
+    width: 140px;
+  }
+  .inputDesign:focus-visible {
+    @apply focus-within:outline-purple;
+  }
+  .ageText {
+    @apply poppins-extrabold-italic text-offBlack text-4xl lg:text-6xl;
+  }
+  @media (max-width: 600px) {
+    .inputDesign {
+      width: 80px;
+    }
+    .mainContainer {
+      border-bottom-right-radius: 100px;
+    }
   }
 }

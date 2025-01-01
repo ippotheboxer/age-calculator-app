@@ -18,9 +18,9 @@ const BirthForm = () => {
     }
 
   return (
-    <form className='flex flex-col items-center lg:items-end justify-center'>
-        <div className='flex flex-row pb-4'>
-            <div className='flex flex-col pr-2'>
+    <form className='pb-8'>
+        <div className='flex flex-row pb-4 pr-16 mb-12'>
+            <div className='flex flex-col pr-6'>
                 <label className='labelText' htmlFor='day'>Day</label>
                 <input
                 className='inputDesign'
@@ -32,7 +32,7 @@ const BirthForm = () => {
                 name='day'/>
             </div>
 
-            <div className='flex flex-col pr-2'>
+            <div className='flex flex-col pr-6'>
                 <label className='labelText' htmlFor='month'>Month</label>
                 <input
                 className='inputDesign'
@@ -44,7 +44,7 @@ const BirthForm = () => {
                 name='month'/>
             </div>
 
-            <div className='flex flex-col pr-2'>
+            <div className='flex flex-col pr-4'>
                 <label className='labelText' htmlFor='year'>Year</label>
                 <input
                 className='inputDesign'
@@ -56,11 +56,14 @@ const BirthForm = () => {
                 name='year'/>
             </div>
         </div>
-        <button type='submit' 
+        <div className='flex items-center justify-center lg:self-end lg:justify-end border-t border-t-lightGrey'>
+            <button 
+            type='submit' 
             onClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => handleSubmit(e)} 
-            className='bg-purple rounded-full p-2'>
-            <img src={ArrowSubmit} alt="arrow" className='w-8' />
-        </button>
+            className='bg-purple rounded-full lg:p-4 p-3 hover:bg-offBlack lg:-mt-9 -mt-5 w-12 lg:w-16'>
+                <img src={ArrowSubmit} alt="arrow" />
+            </button>
+        </div>
 
     </form>
   )
