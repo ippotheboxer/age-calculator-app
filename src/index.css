@@ -7,7 +7,7 @@
     min-height: 100vh;
   }
   .mainContainer {
-    width: 560px;
+    width: 700px;
     border-radius: 15px;
     border-bottom-right-radius: 140px;
   }
@@ -28,20 +28,22 @@
   }
   .labelText {
     @apply poppins-bold uppercase text-smokeyGrey pb-1;
-    font-size: 9px;
-    letter-spacing: 0.35em
+    font-size: 10px;
+    letter-spacing: 0.2em
   }
   .inputDesign {
     @apply border rounded-md border-lightGrey text-offBlack p-2 pl-4 tracking-wide poppins-bold text-sm lg:text-xl;
-    width: 108px;
-    height: 48px;
+    width: 150px;
+    height: 60px;
+    font-size: 32px;
   }
   .inputDesign:focus-visible {
     @apply focus-within:outline-purple;
+    background-color: white;
   }
   .ageText {
     @apply poppins-extrabold-italic text-offBlack lg:text-6xl;
-    font-size: 65px;
+    font-size: 80px;
   }
   @media (max-width: 600px) {
     .inputDesign {
