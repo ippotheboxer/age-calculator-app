@@ -26,9 +26,9 @@ const BirthForm: React.FC<BirthdateFormProps> = ({ onSubmit }) => {
     }
 
   return (
-    <form className='pb-8' onSubmit={(e) => handleSubmit(e)}>
-        <div className='flex flex-row pb-4 pr-16 mb-12'>
-            <div className='flex flex-col pr-6'>
+    <form onSubmit={(e) => handleSubmit(e)}>
+        <div className='flex flex-row pb-4 pr-16 mb-4 pt-1'>
+            <div className='flex flex-col pr-5'>
                 <label className='labelText' htmlFor='day'>Day</label>
                 <input
                 className='inputDesign'
@@ -40,7 +40,7 @@ const BirthForm: React.FC<BirthdateFormProps> = ({ onSubmit }) => {
                 name='day'/>
             </div>
 
-            <div className='flex flex-col pr-6'>
+            <div className='flex flex-col pr-5'>
                 <label className='labelText' htmlFor='month'>Month</label>
                 <input
                 className='inputDesign'
@@ -52,7 +52,7 @@ const BirthForm: React.FC<BirthdateFormProps> = ({ onSubmit }) => {
                 name='month'/>
             </div>
 
-            <div className='flex flex-col pr-4'>
+            <div className='flex flex-col pr-6'>
                 <label className='labelText' htmlFor='year'>Year</label>
                 <input
                 className='inputDesign'

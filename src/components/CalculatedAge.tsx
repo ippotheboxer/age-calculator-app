@@ -27,13 +27,11 @@ const CalculatedAge: React.FC<AgeDisplayProps> = ({ birthdate }) => {
     }})
 
   
-
   return (
-    
-    <div className='flex flex-col'>
-        <p className='ageText'><span className='text-purple'>{years}</span> years</p>
-        <p className='ageText'><span className='text-purple'>{months}</span> months</p>
-        <p className='ageText'><span className='text-purple'>{days}</span> days</p>
+    <div className='flex flex-col pt-3 pl-1'>
+        <p className='ageText pb-3'><span className='text-purple'>{years}</span> years</p>
+        <p className='ageText pb-3'><span className='text-purple'>{months}</span> months</p>
+        <p className='ageText pb-2'><span className='text-purple'>{days}</span> days</p>
     </div>
   )
 }
