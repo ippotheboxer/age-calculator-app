@@ -1,14 +1,19 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 // Components
 import BirthForm from './BirthForm';
 import CalculatedAge from './CalculatedAge';
 
-const MainContainer = () => {
+const MainContainer: React.FC = () => {
+  const [birthdate, setBirthdate] = useState<Date | null>(null);
+
+  const handleBirthdateSubmit = (date: Date) => {
+    setBirthdate(date); // Update the shared state
+  };
   return (
     <div className='flex flex-col bg-white p-8 mainContainer'>
-        <BirthForm />
-        <CalculatedAge />
+        <BirthForm onSubmit={handleBirthdateSubmit}/>
+        <CalculatedAge birthdate={birthdate}/>
     </div>
   )
 }

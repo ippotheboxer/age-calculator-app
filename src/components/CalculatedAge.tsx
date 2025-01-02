@@ -1,38 +1,39 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { differenceInDays } from "date-fns";
 
-interface ageProps {
-    years: number;
-    months: number;
-    days: number;
+interface AgeDisplayProps {
+  birthdate: Date | null;
 }
 
-const CalculatedAge = (props: ageProps) => {
+const CalculatedAge: React.FC<AgeDisplayProps> = ({ birthdate }) => {
+  const [days, setDays] = useState("- -");
+  const [months, setMonths] = useState("- -");
+  const [years, setYears] = useState("- -");
+
+  useEffect(() => {
+    if(birthdate !== null) {
+      var result = differenceInDays(
+      new Date(),
+      birthdate
+    )
+
+    var yearsCalc = Math.floor(result / 365);
+    var monthsCalc = Math.floor(result % 365 / 30);
+    var daysCalc = Math.floor(result % 365 % 30);
+
+    setYears(yearsCalc.toString());
+    setMonths(monthsCalc.toString());
+    setDays(daysCalc.toString());
+    }})
+
+  
+
   return (
+    
     <div className='flex flex-col'>
-        <p className='ageText'>
-            {props.years !== undefined ? 
-            <span className='text-purple'>{props.years} years</span>
-            :
-            <span className='text-purple'>- - </span>
-            }
-            years
-            </p>
-        <p className='ageText'>
-            {props.months !== undefined ? 
-            <span className='text-purple'>{props.months} months</span>
-            :
-            <span className='text-purple'>- - </span>
-            }
-            months
-            </p>
-        <p className='ageText'>
-            {props.days !== undefined ? 
-            <span className='text-purple'>{props.days} days</span>
-            :
-            <span className='text-purple'>- - </span>
-            }
-            days
-            </p>
+        <p className='ageText'><span className='text-purple'>{years}</span> years</p>
+        <p className='ageText'><span className='text-purple'>{months}</span> months</p>
+        <p className='ageText'><span className='text-purple'>{days}</span> days</p>
     </div>
   )
 }

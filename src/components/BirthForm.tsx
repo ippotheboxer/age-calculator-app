@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import ArrowSubmit from "/assets/images/icon-arrow.svg";
 
-const BirthForm = () => {
+interface BirthdateFormProps {
+    onSubmit: (date: Date) => void;
+  }
+
+const BirthForm: React.FC<BirthdateFormProps> = ({ onSubmit }) => {
     const [formData, setFormData] = useState({
         day: "",
         month: "",
@@ -12,13 +16,17 @@ const BirthForm = () => {
         setFormData({...formData, [e.target.name]: e.target.value})
      }
 
-      const handleSubmit = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+      const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         console.log(formData);
+        const date = new Date(`${formData.year}-${formData.month}-${formData.day}`);
+        if (!isNaN(date.getTime())) {
+        onSubmit(date); // Pass the date to the parent
+    }
     }
 
   return (
-    <form className='pb-8'>
+    <form className='pb-8' onSubmit={(e) => handleSubmit(e)}>
         <div className='flex flex-row pb-4 pr-16 mb-12'>
             <div className='flex flex-col pr-6'>
                 <label className='labelText' htmlFor='day'>Day</label>
@@ -58,8 +66,7 @@ const BirthForm = () => {
         </div>
         <div className='flex items-center justify-center lg:self-end lg:justify-end border-t border-t-lightGrey'>
             <button 
-            type='submit' 
-            onClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => handleSubmit(e)} 
+            type='submit'
             className='bg-purple rounded-full lg:p-4 p-3 hover:bg-offBlack lg:-mt-9 -mt-5 w-12 lg:w-16'>
                 <img src={ArrowSubmit} alt="arrow" />
             </button>
