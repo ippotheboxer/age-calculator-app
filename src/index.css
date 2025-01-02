@@ -48,7 +48,11 @@
       width: 80px;
     }
     .mainContainer {
+      width: 360px;
       border-bottom-right-radius: 100px;
+    }
+    .ageText {
+      font-size: 50px;
     }
   }
 }
