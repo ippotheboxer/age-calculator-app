@@ -32,7 +32,7 @@
     letter-spacing: 0.2em
   }
   .inputDesign {
-    @apply border rounded-md border-lightGrey text-offBlack p-2 pl-4 tracking-wide poppins-bold text-sm lg:text-xl;
+    @apply border rounded-md border-lightGrey text-offBlack p-2 lg:pl-4 pl-2 tracking-wide poppins-bold text-sm lg:text-xl;
     width: 150px;
     height: 60px;
     font-size: 32px;
@@ -48,6 +48,7 @@
   @media (max-width: 600px) {
     .inputDesign {
       width: 80px;
+      font-size: 20px;
     }
     .mainContainer {
       width: 360px;
