@@ -35,6 +35,7 @@ Designed using mobile-first approach. First step was to add the colors in the st
 ### Useful resources
 
 - [React-gh-pages guide](https://github.com/gitname/react-gh-pages) - Great tutorial for setting up github pages with React
+- [Perfect Pixel by WellDoneCode (pixel perfect)](https://chromewebstore.google.com/detail/perfectpixel-by-welldonec/dkaagdgjmgdmbnecmcefdhjekcoceebi?pli=1) - I HIGHLY recommend this chrome extension for creating Frontend Mentor solutions! You can see the actual size of the completed project overlaying whilst you're working on design. This is a must if you want it to be super accurate :)
 
 ### Built with
 
