@@ -79,8 +79,8 @@ const BirthForm: React.FC<BirthdateFormProps> = ({ onSubmit }) => {
 
   return (
     <form onSubmit={(e) => handleSubmit(e)}>
-        <div className='flex flex-row pb-6 pr-16 mb-4 pt-1'>
-            <div className='flex flex-col pr-6'>
+        <div className='flex flex-row pb-9 pr-16 mb-4 pt-1'>
+            <div className='flex flex-col md:pr-8 pr-4'>
                 <label className={`labelText ${
                   errors.day && 'text-lightRed'}`} 
                 htmlFor='day'>Day</label>
@@ -96,7 +96,7 @@ const BirthForm: React.FC<BirthdateFormProps> = ({ onSubmit }) => {
                 {errors.day && <p className="poppins-regular-italic text-lightRed text-xs mt-1">{errors.day}</p>}
             </div>
 
-            <div className='flex flex-col pr-6'>
+            <div className='flex flex-col md:pr-8 pr-4'>
                 <label className={`labelText ${
                   errors.month && 'text-lightRed'}`} 
                 htmlFor='month'>Month</label>
@@ -112,7 +112,7 @@ const BirthForm: React.FC<BirthdateFormProps> = ({ onSubmit }) => {
                 {errors.month && <p className="poppins-regular-italic text-lightRed text-xs mt-1">{errors.month}</p>}
             </div>
 
-            <div className='flex flex-col pr-6'>
+            <div className='flex flex-col md:pr-6'>
                 <label className={`labelText ${
                   errors.year && 'text-lightRed'}`} 
                 htmlFor='year'>Year</label>
@@ -129,10 +129,10 @@ const BirthForm: React.FC<BirthdateFormProps> = ({ onSubmit }) => {
             </div>
 
         </div>
-        <div className='flex items-center justify-center lg:self-end lg:justify-end border-t border-t-lightGrey'>
+        <div className='flex items-center justify-center md:self-end md:justify-end border-t border-t-lightGrey'>
             <button 
             type='submit'
-            className='bg-purple rounded-full lg:p-5 p-3 hover:bg-offBlack lg:-mt-9 -mt-5 w-12 lg:w-20'>
+            className='flex justify-center items-center bg-purple rounded-full md:p-5 p-3 hover:bg-offBlack md:-mt-12 -mt-5 w-12 md:w-24 md:h-24'>
                 <img src={ArrowSubmit} alt="arrow" />
             </button>
         </div>

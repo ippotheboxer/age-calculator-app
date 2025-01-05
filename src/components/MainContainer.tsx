@@ -11,7 +11,7 @@ const MainContainer: React.FC = () => {
     setBirthdate(date); // Update the shared state
   };
   return (
-    <div className='flex flex-col bg-white p-9 mainContainer'>
+    <div className='flex flex-col bg-white md:p-14 p-10 mainContainer'>
         <BirthForm onSubmit={handleBirthdateSubmit}/>
         <CalculatedAge birthdate={birthdate}/>
     </div>

@@ -7,9 +7,10 @@
     min-height: 100vh;
   }
   .mainContainer {
-    width: 700px;
-    border-radius: 15px;
-    border-bottom-right-radius: 140px;
+    width: 840px;
+    height: 650px;
+    border-radius: 30px;
+    border-bottom-right-radius: 180px;
   }
   .poppins-regular-italic {
     font-family: "Poppins", serif;
@@ -28,13 +29,13 @@
   }
   .labelText {
     @apply poppins-bold uppercase text-smokeyGrey pb-1;
-    font-size: 10px;
+    font-size: 14px;
     letter-spacing: 0.2em
   }
   .inputDesign {
-    @apply border rounded-md border-lightGrey text-offBlack p-2 lg:pl-4 pl-2 tracking-wide poppins-bold text-sm lg:text-xl;
-    width: 150px;
-    height: 60px;
+    @apply border rounded-md border-lightGrey text-offBlack p-2 pl-2 md:pl-5 tracking-wide poppins-bold text-sm lg:text-xl;
+    width: 160px;
+    height: 70px;
     font-size: 32px;
   }
   .inputDesign:focus-visible {
@@ -42,20 +43,30 @@
     background-color: white;
   }
   .ageText {
-    @apply poppins-extrabold-italic text-offBlack lg:text-6xl;
-    font-size: 80px;
+    @apply poppins-extrabold-italic text-offBlack md:text-6xl tracking-tight;
+    font-size: 100px;
   }
   @media (max-width: 600px) {
     .inputDesign {
       width: 80px;
+      height: 60px;
       font-size: 20px;
     }
     .mainContainer {
-      width: 360px;
+      width: 370px;
+      height: 500px;
       border-bottom-right-radius: 100px;
     }
     .ageText {
       font-size: 50px;
+    }
+  } @media (min-width: 601px) and (max-width: 800px) {
+    .mainContainer {
+      width: 580px;
+      height: 700px;
+    }
+    .ageText {
+      font-size: 80px;
     }
   }
 }
