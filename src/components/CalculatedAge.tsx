@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { differenceInDays } from "date-fns";
+import { intervalToDuration } from "date-fns";
 
 interface AgeDisplayProps {
   birthdate: Date | null;
@@ -12,18 +12,29 @@ const CalculatedAge: React.FC<AgeDisplayProps> = ({ birthdate }) => {
 
   useEffect(() => {
     if(birthdate !== null) {
-      var result = differenceInDays(
-      new Date(),
-      birthdate
-    )
+    
+    const {years, months, days} = intervalToDuration({
+      start: birthdate, 
+      end: new Date()
+    });
+    
+    if (years === undefined) {
+      setYears("0");
+    } else {
+        setYears(years.toString());
+      }
 
-    var yearsCalc = Math.floor(result / 365.25);
-    var monthsCalc = Math.floor(result % 365.25 / 30.437); // 30.437 is the average amount of days in a month
-    var daysCalc = Math.floor(result % 365.25 % 30.437);
+    if (months === undefined) {
+      setMonths("0");
+    } else {
+      setMonths(months.toString());
+      }
 
-    setYears(yearsCalc.toString());
-    setMonths(monthsCalc.toString());
-    setDays(daysCalc.toString());
+    if (days === undefined) {
+      setDays("0");
+    } else {
+      setDays(days.toString());
+    }  
     }})
 
   
