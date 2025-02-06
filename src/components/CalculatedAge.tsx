@@ -17,9 +17,9 @@ const CalculatedAge: React.FC<AgeDisplayProps> = ({ birthdate }) => {
       birthdate
     )
 
-    var yearsCalc = Math.floor(result / 365);
-    var monthsCalc = Math.floor(result % 365 / 30);
-    var daysCalc = Math.floor(result % 365 % 30);
+    var yearsCalc = Math.floor(result / 365.25);
+    var monthsCalc = Math.floor(result % 365.25 / 30.437); // 30.437 is the average amount of days in a month
+    var daysCalc = Math.floor(result % 365.25 % 30.437);
 
     setYears(yearsCalc.toString());
     setMonths(monthsCalc.toString());

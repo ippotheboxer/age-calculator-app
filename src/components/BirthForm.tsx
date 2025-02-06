@@ -15,9 +15,14 @@ const BirthForm: React.FC<BirthdateFormProps> = ({ onSubmit }) => {
 
     const validateInputs = (): boolean => {
         const currentDate = new Date();
+        const currentYear = currentDate.getFullYear();
+        const currentMonth = currentDate.getMonth() + 1;
+        const currentDay = currentDate.getDate();
+
         const parsedDay = Number(formData.day);
         const parsedMonth = Number(formData.month);
         const parsedYear = Number(formData.year);
+
         const newErrors: { day?: string; month?: string; year?: string } = {};
     
         // Validate Year
@@ -57,7 +62,18 @@ const BirthForm: React.FC<BirthdateFormProps> = ({ onSubmit }) => {
             newErrors.day = `Must be a valid date`;
           }
         }
-    
+
+        // CHeck that date is not in the future
+        if (parsedYear === currentYear) {
+          if (parsedMonth > currentMonth) {
+            newErrors.month = 'Must be in the past';
+          } else if (parsedMonth === currentMonth) {
+            if (parsedDay > currentDay) {
+              newErrors.day = 'Must be in the past';
+            }
+          }
+        }
+
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
       };
