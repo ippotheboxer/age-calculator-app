@@ -30,7 +30,20 @@ Users should be able to:
 - [Live Site URL](https://ippotheboxer.github.io/age-calculator-app/)
 
 ## My process
-Designed using mobile-first approach. First step was to add the colors in the style guide to tailwind.config.js, add colors array into theme. Next I fully designed the app with no functionality. The first functionality I introduced was adding the form and making sure the app could receive the results. To pass the date from BirhForm.tsx, there is a master component MainContainer.tsx that has a state which is set by submitting the form in BirthForm component. Then that date given is saved as a javscript date, which the CalculatedAge component receives. To calculate the difference in days since the given date and the current date, a function differenceInDays is imported from date-fns.
+Designed using mobile-first approach. First step was to add the colors in the style guide to tailwind.config.js, add colors array into theme. Next I fully designed the app with no functionality. 
+
+The first functionality I introduced was adding the form and making sure the app could receive the results. To pass the date from BirhForm.tsx, there is a master component MainContainer.tsx that has a state which is set by submitting the form in BirthForm component. Then that date given is saved as a javascript date, which the CalculatedAge component receives. 
+
+To calculate the difference in years, months and days since the present time and given date, internalToDuration is used from date-fns. I found this was more accurate than using differenceInDays since with days you had to do calcuations to all years, months and days to divide it into the correct amount: however it wasn't as accurate since 30.347 was assumed as the average amount of days per month, leading to inaccuracies in the day count. Using intervalToDuration returns an object with years, months, days, hours, minutes and seconds so I destructued the object to only receieve the needed fields (years, months and days).
+
+[Documentation for intervalToDuration](https://date-fns.org/v4.1.0/docs/intervalToDuration) 
+
+One small issue was that if any of the fields were 0, it would not return months: 0, it just doesn't return the months. However I handled this by checking if any of the properties were undefined, and if they were setting their state to 0.
+
+I created the animation by using useSpring from react-spring, and set different delays for each field.
+
+[Documentation for useSpring](https://www.react-spring.dev/docs/components/use-spring)
+
 
 ### Useful resources
 
@@ -43,5 +56,6 @@ Designed using mobile-first approach. First step was to add the colors in the st
 - [Typescript](https://www.typescriptlang.org/) - JS with types
 - [Tailwind-css](https://tailwindcss.com/) - CSS framework
 - [Vite](https://vite.dev/) - Frontend build tool
-- [date-fns](https://date-fns.org/) - To get difference in days
+- [date-fns](https://date-fns.org/) - intervalToDuration
+- [react-spring](https://www.react-spring.dev/docs) - library for buildilng animated UI components
 
