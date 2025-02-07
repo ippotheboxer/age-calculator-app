@@ -19,6 +19,7 @@ const BirthForm: React.FC<BirthdateFormProps> = ({ onSubmit }) => {
         const currentMonth = currentDate.getMonth() + 1;
         const currentDay = currentDate.getDate();
 
+        let lengthOfYear = formData.year.length;
         const parsedDay = Number(formData.day);
         const parsedMonth = Number(formData.month);
         const parsedYear = Number(formData.year);
@@ -29,11 +30,16 @@ const BirthForm: React.FC<BirthdateFormProps> = ({ onSubmit }) => {
         if (!formData.year) {
           newErrors.year = 'This field is required';
         } 
+        else if (lengthOfYear !== 4) {
+          newErrors.year = 'Must be in 4 digit format.';
+        }
         else if (isNaN(parsedYear)) {
           newErrors.year = 'Must be a number';
         }
         else if (parsedYear > currentDate.getFullYear()) {
           newErrors.year = 'Must be in the past';
+        } else if (parsedYear < 0) {
+          newErrors.year = 'Must be a valid year';
         }
     
         // Validate Month
